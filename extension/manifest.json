@@ -1,0 +1,39 @@
+{
+    "manifest_version": 3,
+    "name": "AIID Incident Report Form Filler",
+    "version": "0.0.1",
+    "description": "Populate fields of an AIID Incident Reprt",
+    "homepage_url": "https://incidentdatabase.ai/apps/submit/",
+    "icons": {
+        "16": "clipboard.png",
+        "32": "clipboard.png",
+        "48": "clipboard.png",
+        "128": "clipboard.png"
+      },
+    "background": {
+        "service_worker": "background/background.js"
+    },
+    "action": {
+        "default_icon": {              
+          "16": "clipboard.png",   
+          "24": "clipboard.png",   
+          "32": "clipboard.png"
+        },
+        "default_title": "AIID Incident Report Form Filler",   
+        "default_popup": "popup/popup.html" 
+      },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+      },
+    "content_scripts": [
+        {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+        }
+    ],
+    "permissions": ["storage","activeTab","declarativeContent"],
+    "host_permissions": [
+      "http://127.0.0.1:5000/"
+    ]
+    
+}
